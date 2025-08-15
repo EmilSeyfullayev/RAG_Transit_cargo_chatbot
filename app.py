@@ -1,7 +1,6 @@
 import os
 import glob
 import pickle
-from dotenv import load_dotenv
 
 import streamlit as st
 from langchain_core.documents import Document
@@ -134,7 +133,6 @@ def get_vectorstore(_docs_dir, _index_dir, _fingerprint):
 # =========================
 def main():
     st.set_page_config(page_title="RAG Chat", page_icon="💬")
-    load_dotenv()
     if "OPENAI_API_KEY" not in st.secrets:
         st.error("Missing OPENAI_API_KEY in .streamlit/secrets.toml")
         st.stop()
@@ -182,4 +180,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
