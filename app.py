@@ -161,7 +161,7 @@ def main():
         with st.chat_message(msg["role"]):
             st.markdown(msg["content"])
 
-    if prompt := st.chat_input("Ask something..."):
+    if prompt := st.chat_input("Tranzitlə bağlı sualınızı verin..."):
         # Show user message
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
@@ -169,7 +169,7 @@ def main():
 
         # Get answer
         with st.chat_message("assistant"):
-            with st.spinner("Thinking..."):
+            with st.spinner("düşünürəm..."):
                 result = qa_chain({"question": prompt, "chat_history": st.session_state.chat_history})
                 answer = result["answer"]
                 st.markdown(answer)
@@ -182,3 +182,4 @@ def main():
 if __name__ == "__main__":
 
     main()
+
